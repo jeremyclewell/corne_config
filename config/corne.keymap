@@ -15,8 +15,9 @@
         JK-Esc {
             bindings = <&kp ESCAPE>;
             key-positions = <19 20>;
-            timeout-ms = <100>;
+            timeout-ms = <200>;
             layers = <0>;
+            slow-release;
         };
     };
 
@@ -60,9 +61,16 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DOUBLE_G_TAB";
             #binding-cells = <0>;
-            bindings = <&kp G>, <&kp G>;
+            bindings = <&kp G>, <&kp TAB>;
 
             tapping-term-ms = <200>;
+        };
+
+        Double_H_return: Double_H_return {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOUBLE_H_RETURN";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp ENTER>;
         };
     };
 
@@ -78,10 +86,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB    &kp Q  &kp W                 &kp E             &kp R             &kp T            &kp Y    &kp U              &kp I              &kp O                  &kp P     &kp BSPC
-&kp LCTRL  &kp A  &HRML LEFT_CONTROL S  &HRML LEFT_ALT D  &HRML LEFT_GUI F  &kp G            &kp H    &HRMR RIGHT_GUI J  &HRMR RIGHT_ALT K  &HRMR RIGHT_CONTROL L  &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X                 &kp C             &kp V             &kp B            &kp N    &kp M              &kp COMMA          &kp DOT                &kp FSLH  &kp ESC
-                                        &mo 1             &kp LEFT_SHIFT    &kp BACKSPACE    &kp RET  &kp SPACE          &mo 2
+&kp TAB    &kp Q  &kp W                 &kp E             &kp R             &kp T            &kp Y             &kp U              &kp I              &kp O                  &kp P     &kp ENTER
+&kp LCTRL  &kp A  &HRML LEFT_CONTROL S  &HRML LEFT_ALT D  &HRML LEFT_GUI F  &Double_G_Tab    &Double_H_return  &HRMR RIGHT_GUI J  &HRMR RIGHT_ALT K  &HRMR RIGHT_CONTROL L  &kp SEMI  &kp SQT
+&mo 1      &kp Z  &kp X                 &kp C             &kp V             &kp B            &kp N             &kp M              &kp COMMA          &kp DOT                &kp FSLH  &mo 2
+                                        &mo 1             &kp LEFT_SHIFT    &kp BACKSPACE    &kp SPACE         &kp RIGHT_SHIFT    &kp ESC
             >;
         };
 
